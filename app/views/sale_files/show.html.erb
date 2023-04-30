@@ -1,0 +1,33 @@
+<div class="w-full max-w-24 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 "> 
+    <h2 class="text-xl font-semibold "> Companies create from this file</h2>
+    <%= link_to 'Home', root_path, class: "inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  my-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 " %>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">Purchaser Name</th>
+            <th scope="col" class="px-6 py-3">Item Description</th>
+            <th scope="col" class="px-6 py-3">Item Price</th>
+            <th scope="col" class="px-6 py-3">Purchase Count</th>
+            <th scope="col" class="px-6 py-3">Merchant Address</th>
+            <th scope="col" class="px-6 py-3">Merchant Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sale_file.company_sales.each do |company_sale| %>
+          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <td class="px-6 py-4"><%= company_sale.item_description %></td>
+            <td class="px-6 py-4"><%= company_sale.item_price %></td>
+            <td class="px-6 py-4"><%= company_sale.merchant_address %></td>
+            <td class="px-6 py-4"><%= company_sale.merchant_name %></td>
+            <td class="px-6 py-4"><%= company_sale.purchase_count %></td>
+            <td class="px-6 py-4"><%= company_sale.purchaser_name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+</div>

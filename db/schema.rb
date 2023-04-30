@@ -21,17 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_29_150615) do
     t.integer "purchase_count"
     t.string "merchant_address"
     t.string "merchant_name"
-    t.bigint "file_id", null: false
+    t.bigint "sale_file_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["file_id"], name: "index_company_sales_on_file_id"
+    t.index ["sale_file_id"], name: "index_company_sales_on_sale_file_id"
   end
 
   create_table "sale_files", force: :cascade do |t|
-    t.string "files", null: false
+    t.string "file"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "company_sales", "sale_files", column: "file_id"
 end

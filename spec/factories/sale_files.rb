@@ -3,7 +3,8 @@
 # Table name: sale_files
 #
 #  id         :bigint           not null, primary key
-#  files      :string           not null
+#  file       :string
+#  status     :integer          default("enqueued"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

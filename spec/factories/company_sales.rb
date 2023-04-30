@@ -11,15 +11,11 @@
 #  purchaser_name   :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  file_id          :bigint           not null
+#  sale_file_id     :bigint           not null
 #
 # Indexes
 #
-#  index_company_sales_on_file_id  (file_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (file_id => sale_files.id)
+#  index_company_sales_on_sale_file_id  (sale_file_id)
 #
 FactoryBot.define do
   factory :company_sale do
@@ -29,6 +25,6 @@ FactoryBot.define do
     purchase_count { Faker::Number.within(range: 1..10) }
     merchant_address { Faker::Address.street_address }
     merchant_name { Faker::Commerce.name  }
-    sales_file { nil }
+    sale_file { nil }
   end
 end

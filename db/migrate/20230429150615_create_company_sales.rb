@@ -7,7 +7,7 @@ class CreateCompanySales < ActiveRecord::Migration[7.0]
       t.integer :purchase_count
       t.string :merchant_address
       t.string :merchant_name
-      t.references :sales_file, null: false
+      t.references :sale_file, null: false
 
       t.timestamps
     end

@@ -1,0 +1,4 @@
+:queues:
+  - sale_file
+
+:backtrace: true
