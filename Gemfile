@@ -52,6 +52,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
    # Config
    gem 'dotenv-rails', '~> 2.7'
+
+  gem 'database_cleaner', '~> 1.8'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
@@ -72,9 +76,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 
-  gem 'database_cleaner', '~> 1.8'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 5.0'
 end
 
 gem "tailwindcss-rails", "~> 2.0"

@@ -7,8 +7,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
-Faker::Config.locale = 'pt-BR'
-
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -18,8 +16,9 @@ end
 RSpec.configure do |config|
   config.include RequestHelpers, type: :request
   config.include RequestHelpers, type: :controller
+  config.include ActionDispatch::TestProcess
 
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = true
 
