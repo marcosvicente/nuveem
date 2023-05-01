@@ -11,5 +11,12 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe HomeHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context ".total_sale_all_time" do
+    let(:sale_file) { create(:sale_file)}
+    let(:total_sales) { create_list(:company_sale, 10, sale_file:)}
+
+    it "should be return a total sale all time" do
+      expect(helper.total_sale_all_time).to eq(CompanySale.all.sum(:item_price))
+    end
+  end
 end

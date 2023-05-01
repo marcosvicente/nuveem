@@ -30,7 +30,7 @@
         </tbody>
       </table>
     </div>
-    <h2 class="text-xl font-semibold mt-4" > Total of from this file upload: <%= @total_sales %></h2>
+    <h2 class="text-xl font-semibold mt-4" > Total of from this file upload: <%= total_sales(@sale_file) %></h2>
     <%= link_to 'Go to Home', root_path, class: "inline-flex items-center d-flex text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  my-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 " %>
   <% end %>
 </div>

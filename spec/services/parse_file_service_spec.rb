@@ -24,8 +24,7 @@ RSpec.describe ParseFileService, type: :service do
     it "should be return with created sale_file with status done" do
       klass = described_class.new(sale_file).call
       
-      expect(SaleFile.last.status).to be_done
+      expect(SaleFile.last.status).to eq("done")
     end
-
   end
 end

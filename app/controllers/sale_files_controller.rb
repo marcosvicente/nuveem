@@ -4,12 +4,7 @@ class SaleFilesController < ApplicationController
   end
 
   def show
-    # debugger
     @sale_file = SaleFile.find(params[:id])
-    @total_sales = 0 
-    @total_sales = @sale_file.company_sales.collect{|value| @total_sales + value.item_price}.inject(0, :+)
-
-    @sale_file
   end
 
   def new

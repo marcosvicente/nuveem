@@ -17,7 +17,8 @@ RSpec.configure do |config|
   config.include RequestHelpers, type: :request
   config.include RequestHelpers, type: :controller
   config.include ActionDispatch::TestProcess
-
+  config.include ActiveSupport::Testing::FileFixtures
+  
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = true
