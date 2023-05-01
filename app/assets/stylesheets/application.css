@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  border-left: 1px solid #ddd;
+}
+.pagination .first{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination  .prev {
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination  .page{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination  .next{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination   .last{
+    padding : 0;
+    float: none;
+    border: none;
+}

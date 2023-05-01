@@ -4,7 +4,12 @@ class SaleFilesController < ApplicationController
   end
 
   def show
+    # debugger
     @sale_file = SaleFile.find(params[:id])
+    @total_sales = 0 
+    @total_sales = @sale_file.company_sales.collect{|value| @total_sales + value.item_price}.inject(0, :+)
+
+    @sale_file
   end
 
   def new
@@ -13,15 +18,11 @@ class SaleFilesController < ApplicationController
 
   def create
     @sale_file = SaleFile.new(sale_file_params)
-    respond_to do |format|
-      if @sale_file.save
-        ParseFileWorker.perform_async(@sales_file)
-        format.html { redirect_to @sale_file, notice: "Sales file was created." }
-        format.json { render :show, status: :created, location: @import }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @sale_file.errors, status: :unprocessable_entity }
-      end
+    if @sale_file.save
+      ParseFileWorker.perform_async(@sale_file.id)
+      redirect_to @sale_file, notice: "Sales file was created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 end

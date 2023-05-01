@@ -38,7 +38,9 @@ class ParseFileService
       merchant_name: sanitaze_string(params[5]),
       sale_file_id: @sale_file.id
     )
-    company_sale.save!
+    unless company_sale.save
+      change_status(:error)
+    end
   end
 
   def sanitaze_string(str)

@@ -8,8 +8,7 @@
     </div>
   <% end %>
 
-# Todo: Fix if
-  <% if @companies_sales.nil? %>
+  <% if @companies_sales.empty? %>
     <h2 class="text-xl font-medium text-gray-900 dark:text-white py-3">Do not have a sales</h2>
   <% else %>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -22,22 +21,27 @@
             <th scope="col" class="px-6 py-3">Purchase Count</th>
             <th scope="col" class="px-6 py-3">Merchant Address</th>
             <th scope="col" class="px-6 py-3">Merchant Name</th>
+            <th scope="col" class="px-6 py-3">Link File</th>
           </tr>
         </thead>
         <tbody>
         <% @companies_sales.each do |sales| %>
           <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <td class="px-6 py-4"><%= sales.purchaser_name %></td>
             <td class="px-6 py-4"><%= sales.item_description %></td>
             <td class="px-6 py-4"><%= sales.item_price %></td>
+            <td class="px-6 py-4"><%= sales.purchase_count %></td>
             <td class="px-6 py-4"><%= sales.merchant_address %></td>
             <td class="px-6 py-4"><%= sales.merchant_name %></td>
-            <td class="px-6 py-4"><%= sales.purchase_count %></td>
-            <td class="px-6 py-4"><%= sales.purchaser_name %></td>
-
+            <td class="px-6 py-4"><%= link_to 'Sales File Upload', sale_file_path(sales.sale_file_id), class: "text-blue-600 dark:text-blue-500 hover:underline" %></td>
           </tr>
         <% end %>    
         </tbody>
       </table>
+    </div>
+    <div class="mx-auto w-46 mt-6">
+      <h2 class="text-xl font-semibold"> Total all-time: <%= @total_sale_all_time %></h2>
+      <%= paginate @companies_sales, class: "paginate"%>
     </div>
   <% end %>
 
